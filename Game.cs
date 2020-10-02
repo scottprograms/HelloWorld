@@ -163,7 +163,7 @@ namespace HelloWorld
                     Console.WriteLine("You have selected the Morning Star");
                 }
                 Console.WriteLine("After you selected your weapon, while walking you find a group of enemies");
-                
+                //Array #1
                 enemy[] enemies = new enemy[3];
 
                 enemies[0] = new enemy();
@@ -233,9 +233,9 @@ namespace HelloWorld
                 Console.WriteLine("Press any key to continue");
                 input = Console.ReadKey().KeyChar;
                 Console.Clear();
-                Console.WriteLine("After fighting the enemies we find the Dragon's cave.");
+                Console.WriteLine("After fighting the enemies you find the Dragon's cave.");
                 Console.WriteLine("You walk into the cave and find the Dragon sleeping but you kick a rock and it wakes up.");
-                
+                //Array #2
                 Dragon[] Dragons = new Dragon[2];
                 Dragons[0] = new Dragon()
                 {

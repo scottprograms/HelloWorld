@@ -10,7 +10,7 @@ namespace HelloWorld
         public int damage = 10;
         public string name = "";
         public int magic = 5;
-        public void Takedamage()
+        public virtual void Takedamage()
         {
             health -= 50;
         }
