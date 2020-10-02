@@ -8,7 +8,7 @@ namespace HelloWorld
     {
         public int fire = 999;
         public int claws = 888;
-        public int weight = 1337;
+        public int scales = 1337;
         public int hearing = 100;
         
         public void gameOver()

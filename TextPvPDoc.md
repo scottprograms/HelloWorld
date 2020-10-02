@@ -33,6 +33,79 @@
 
 #### Object Information
 
-Name: 
+**File** : Dragon.cs
+
+Name: fire
+Description: An attack that the dragon can preform
+Type: int
+
+Name: claw
+Description: An attack that the dragon can preform
+Type: int
+
+Name: scales
+Description: A form of defense that is attached to health
+Type: int
+
+Name: hearing
+Description: A form of defense that is attached to magic
+Type: int
+
+**File** : enemy.cs
+
+Name: health
+Description: A way of counting the users durability of damage
+Type: int
+
+Name: damage
+Desciption: The amount of health a player can lose
+Type: int
+
+Name: name
+Desciption: Is what the user wants to be referred as
+Type: string
+
+Name: magic
+Description: A way of inflicting damage on an enemy or a way of defending
+Type: int
+
+**File** : Game.cs
+Name: name
+Decription: Is what the user wants to be referred as
+Type: string
+
+Name: health
+Description: A way to store the users health
+Type: float
+
+Name: healthRegen
+Description: The process of healing
+Type: float
+
+Name: level
+Description: A way of keeping track of the user's progress
+Type: int
+
+Name: ready
+Description: The beginning of the game
+Type: bool
+
+Name: role
+Description: The option to choose from more that one character
+Type: string
+
+Name: enemy
+Description: A group of ints that make up a character that the user must face
+Type: Array
+
+Name: dragon
+Description: The ending battle of the game
+Type:Array
+
+
+
+
+
+
 
 
