@@ -14,10 +14,7 @@ namespace HelloWorld
             float health = 100.0f;
             //This value is used to heal the player
             float healthRegen = 20.0f;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
             bool maxLevelReached = false;
             int damage = 20;
             int level = 1;
@@ -29,10 +26,6 @@ namespace HelloWorld
             Console.WriteLine("Press 3 for Mage");
             char input = Console.ReadKey().KeyChar;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             if (input == '1')
             {
                 health = 250;
@@ -71,10 +64,6 @@ namespace HelloWorld
             Console.WriteLine("Press 2 for no");
             input = Console.ReadKey().KeyChar;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             if (input == '1')
             {
                 health = 50;
@@ -84,22 +73,14 @@ namespace HelloWorld
                 Console.WriteLine("Once you finally wake up the lady is nowhere to be found and all of your gold & weapons are gone.");
                 Console.WriteLine("Press any key to continue");
                 input = Console.ReadKey().KeyChar;
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> master
             }
             else if (input == '2')
             {
                 Console.WriteLine("You decline and go on with your journey");
             }
             {
-<<<<<<< HEAD
-=======
 
->>>>>>> master
                 Console.WriteLine("A little girl comes running up to you, and asks if you'd like some water and a map?");
                 Console.WriteLine("Would you like to accept?");
                 Console.WriteLine("Press 1 for yes");
@@ -118,46 +99,6 @@ namespace HelloWorld
                 }
                 Console.WriteLine("Press any key to continue");
                 input = Console.ReadKey().KeyChar;
-<<<<<<< HEAD
-                Console.Clear();
-                Console.WriteLine("After dealing with the little girl a man come to you and says you look familiar, but you tell him that you're a travelor from the East.");
-                Console.WriteLine("The man says Where are you heading sir?");
-                Console.WriteLine("Your response to the man is that you're on a quest to slay a dragon for a reward");
-                Console.WriteLine("THE DRAGON!!! says the man.");
-                Console.WriteLine("You nod your head as your reply.");
-                Console.WriteLine("Goodluck!! says the man. Then you continue down the trail.");
-                Console.WriteLine("Press Space to continue");
-                input = Console.ReadKey().KeyChar;
-                Console.Clear();
-                Console.WriteLine("As you continue the journey and find a small pond to rest.");
-                Console.WriteLine("While taking your rest you see by a tree that there is a chest");
-                Console.WriteLine("You walk up to the chest and open it and find.....");
-                Console.WriteLine("Press Space to continue");
-                input = Console.ReadKey().KeyChar;
-                Console.WriteLine("You've found a Sword and a Potion!!!");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
                 Console.WriteLine("Along the path you find a bag");
                 Console.WriteLine("Would you like to pick it up?");
                 Console.WriteLine("Press 1 for Yes.");
@@ -324,7 +265,13 @@ namespace HelloWorld
 
 
 
->>>>>>> master
+
+
+
+
+
+
+           
 
 
 
@@ -334,7 +281,25 @@ namespace HelloWorld
 
 
 
-<<<<<<< HEAD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             //Create an application that gets the user's name
@@ -354,8 +319,6 @@ namespace HelloWorld
 
 
 
-=======
->>>>>>> master
 
 
 
@@ -366,8 +329,7 @@ namespace HelloWorld
 
 
 
-<<<<<<< HEAD
-=======
+
 
 
 
@@ -403,7 +365,7 @@ namespace HelloWorld
 
 
             }
->>>>>>> master
+
         }
     }
 }
