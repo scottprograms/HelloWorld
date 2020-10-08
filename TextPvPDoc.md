@@ -102,6 +102,13 @@ Name: dragon
 Description: The ending battle of the game
 Type:Array
 
+Name: gameOver
+Description: The function that ends the game
+Type: Function
+
+Name: TakeDamage
+Desciption: A way of taking health away from the user or enemies
+Type: int 
 
 
 
