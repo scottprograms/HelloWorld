@@ -35,80 +35,82 @@
 
 **File** : Dragon.cs
 
-Name: fire
+Name: fire:
 Description: An attack that the dragon can preform
 Type: int
 
-Name: claw
+Name: claw:
 Description: An attack that the dragon can preform
 Type: int
 
-Name: scales
+Name: scales:
 Description: A form of defense that is attached to health
 Type: int
 
-Name: hearing
+Name: hearing:
 Description: A form of defense that is attached to magic
 Type: int
 
 **File** : enemy.cs
 
-Name: health
+Name: health:
 Description: A way of counting the users durability of damage
 Type: int
 
-Name: damage
+Name: damage:
 Desciption: The amount of health a player can lose
 Type: int
 
-Name: name
+Name: name:
 Desciption: Is what the user wants to be referred as
 Type: string
 
-Name: magic
+Name: magic:
 Description: A way of inflicting damage on an enemy or a way of defending
 Type: int
 
 **File** : Game.cs
-Name: name
+Name: name:
 Decription: Is what the user wants to be referred as
 Type: string
 
-Name: health
+Name: health:
 Description: A way to store the users health
 Type: float
 
-Name: healthRegen
+Name: healthRegen:
 Description: The process of healing
 Type: float
 
-Name: level
+Name: level:
 Description: A way of keeping track of the user's progress
 Type: int
 
-Name: ready
+Name: ready:
 Description: The beginning of the game
 Type: bool
 
-Name: role
+Name: role:
 Description: The option to choose from more that one character
 Type: string
 
-Name: enemy
+Name: enemy:
 Description: A group of ints that make up a character that the user must face
 Type: Array
 
-Name: dragon
+Name: dragon:
 Description: The ending battle of the game
 Type:Array
 
-Name: gameOver
+Name: gameOver:
 Description: The function that ends the game
 Type: Function
 
-Name: TakeDamage
+Name: TakeDamage:
 Desciption: A way of taking health away from the user or enemies
 Type: int 
+
+
 
 
 
