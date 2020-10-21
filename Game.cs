@@ -1,74 +1,72 @@
 ﻿using System;
+using System.IO;
 
 namespace HelloWorld
 {
+   
     class Game
     {
+        public float healthRegen = 20.0f;
+        public bool maxLevelReached = false;
+        public int level = 1;
+        public bool ready = true;
+        private enemy troll = new enemy(50, 50, "Troll", 0);
+        private enemy goblin = new enemy(25, 5, "Goblin", 0);
+        private enemy fairy = new enemy(40, 35, "Fairy", 50);
+        private player player = new player("douche", 100, 20, "none");
+        enemy[] enemies = new enemy[3];
+     
+        
+        public void GetInput(out char input, string option1, string option2, string query)
+        {
+            Console.WriteLine(query);
+            Console.WriteLine("1." + option1);
+            Console.WriteLine("2." + option2);
+            Console.Write("> ");
 
+            input = ' ';
+            while (input != '1' && input != '2')
+            {
+                input = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+                if (input != '1' && input != '2')
+                {
+                    Console.WriteLine("invalid input!");
+                }
+            }
+
+        }
+        public void GetInput(out char input, string option1, string option2, string option3, string query)
+        {
+            Console.WriteLine(query);
+            Console.WriteLine("1." + option1);
+            Console.WriteLine("2." + option2);
+            Console.WriteLine("3." + option3);
+            Console.Write("> ");
+
+            input = ' ';
+            while (input != '1' && input != '2' && input != '3')
+            {
+                input = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+                if (input != '1' && input != '2' && input != '3')
+                {
+                    Console.WriteLine("invalid input!");
+                }
+            }
+        }
         public void Run()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Hello Friend! What do you go by?");
-            string name = Console.ReadLine();
-            Console.WriteLine("Welecome " + name + " !" + " Please select a role");
-            //This variable is used to store health
-            float health = 100.0f;
-            //This value is used to heal the player
-            float healthRegen = 20.0f;
-
-            bool maxLevelReached = false;
-            int damage = 20;
-            int level = 1;
-            bool ready = true;
-            string role = "none";
-            //Asking player to select a role.
-            Console.WriteLine("Press 1 for Knight");
-            Console.WriteLine("Press 2 for Wizard");
-            Console.WriteLine("Press 3 for Mage");
-            char input = Console.ReadKey().KeyChar;
-
-            if (input == '1')
-            {
-                health = 250;
-                damage = 50;
-                role = "Knight";
-            }
-            else if (input == '2')
-            {
-                health = 300;
-                damage = 70;
-                role = "Wizzard";
-            }
-            else if (input == '3')
-            {
-                health = 150;
-                damage = 25;
-                role = "Mage";
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Using default stats");
-
-            }
-            //Prints player stats to the screen
-            Console.WriteLine("Player Name: " + name);
-            Console.WriteLine("Player Level: " + level);
-            Console.WriteLine("Player Role: " + role);
-            Console.WriteLine("Player Health: " + health);
-            Console.WriteLine("Press any key to continue");
-            input = Console.ReadKey().KeyChar;
-            Console.Clear();
+            Start();
+         
+            char input;
+            
             Console.WriteLine("An old lady approaches you.");
             Console.WriteLine("She offers you a beverage that is to increase your health");
-            Console.WriteLine("Do you accept?");
-            Console.WriteLine("Press 1 for yes");
-            Console.WriteLine("Press 2 for no");
-            input = Console.ReadKey().KeyChar;
-
+            GetInput(out input, "yes", "no", "Do you accept?");
             if (input == '1')
             {
-                health = 50;
-                damage = 250;
+               
                 Console.WriteLine("A sudden rush of courage and strength come about");
                 Console.WriteLine("The rush is so overwhelming and powerful it give you an aneurysm");
                 Console.WriteLine("Once you finally wake up the lady is nowhere to be found and all of your gold & weapons are gone.");
@@ -83,14 +81,12 @@ namespace HelloWorld
 
 
             Console.WriteLine("A little girl comes running up to you, and asks if you'd like some water and a map?");
-            Console.WriteLine("Would you like to accept?");
-            Console.WriteLine("Press 1 for yes");
-            Console.WriteLine("Press 2 for no");
-            input = Console.ReadKey().KeyChar;
+            
+            GetInput(out input, "yes", "no", " Would you like to accept?");
 
             if (input == '1')
             {
-                health = 100;
+               
                 Console.WriteLine("You thank the little girl.");
                 Console.WriteLine("You continue on your quest.");
             }
@@ -101,10 +97,8 @@ namespace HelloWorld
             Console.WriteLine("Press any key to continue");
             input = Console.ReadKey().KeyChar;
             Console.WriteLine("Along the path you find a bag");
-            Console.WriteLine("Would you like to pick it up?");
-            Console.WriteLine("Press 1 for Yes.");
-            Console.WriteLine("Press 2 for No");
-            input = Console.ReadKey().KeyChar;
+            
+            GetInput(out input, "yes", "no", "Would you like to pick it up?");
             if (input == '1')
             {
                 Console.WriteLine("You open the bag and find some Mushrooms");
@@ -116,10 +110,8 @@ namespace HelloWorld
             Console.WriteLine("Press any key to continue");
             input = Console.ReadKey().KeyChar;
             Console.WriteLine("Along the journey you look around and come across a small house");
-            Console.WriteLine("Would you dare to enter?");
-            Console.WriteLine("Press 1 for Yes.");
-            Console.WriteLine("Press 2 for No");
-            input = Console.ReadKey().KeyChar;
+            ;
+            GetInput(out input, "yes", "no", "Would you dare to enter");
             if (input == '1')
             {
                 Console.WriteLine("You enter the house and see a pile of dead courpes on the floor and slowly backup and close the door");
@@ -165,97 +157,141 @@ namespace HelloWorld
             }
             Console.WriteLine("After you selected your weapon, while walking you find a group of enemies");
             //Array #1
-            enemy[] enemies = new enemy[3];
+            
 
-            enemies[0] = new enemy();
-            enemies[1] = new enemy();
-            enemies[2] = new enemy();
+            enemies[0] = troll;
+            enemies[1] = goblin;
+            enemies[2] = fairy;
+            Update();
 
-            enemies[0].name = "Goblin";
-            enemies[1].name = "Troll";
-            enemies[2].name = "Fairy";
-
-            Console.WriteLine("Your first enemy is a Goblin");
-            Console.WriteLine("Do you want to fight?");
-            Console.WriteLine("Press 1 for yes");
-            Console.WriteLine("Press 2 for no");
-            input = Console.ReadKey().KeyChar;
-
-            if (input == '1')
-            {
-                Console.WriteLine("You begin to fight the Goblin");
-                Console.WriteLine("You attack the Goblin and kill it.");
-                enemies[0].Takedamage();
-            }
-
-            if (input == '2')
-            {
-                Console.WriteLine("You try and run away, but you trip and fall.");
-                Console.WriteLine(name + " Has taken 5 damage for falling");
-                health -= 5;
-                Console.WriteLine(health);
-            }
-            Console.WriteLine("Now a Troll appears would you like to fight?");
-            Console.WriteLine("Press 1 for yes");
-            Console.WriteLine("Press 2 for no");
-            input = Console.ReadKey().KeyChar;
-            if (input == '1')
-            {
-                Console.WriteLine("You begin to fight the Troll.");
-                Console.WriteLine("You attack the Goblin and kill it.");
-                enemies[1].Takedamage();
-            }
-
-            if (input == '2')
-            {
-                Console.WriteLine("You try and run away, but you trip and fall.");
-                Console.WriteLine(name + " Has taken 5 damage for falling");
-                health -= 5;
-                Console.WriteLine(health);
-            }
-            Console.WriteLine("A Fairy flies up to you and wants to challenges you. Do you want to fight?");
-            Console.WriteLine("Press 1 for yes");
-            Console.WriteLine("Press 2 for no");
-            input = Console.ReadKey().KeyChar;
-            if (input == '1')
-            {
-                Console.WriteLine("You begin to fight the Fairy.");
-                Console.WriteLine("You attack the Goblin and kill it.");
-                enemies[2].Takedamage();
-            }
-
-            if (input == '2')
-            {
-                Console.WriteLine("You try and run away, but you trip and fall.");
-                Console.WriteLine(name + " Has taken 5 damage for falling");
-                health -= 5;
-                Console.WriteLine(health);
-            }
             Console.WriteLine("Press any key to continue");
             input = Console.ReadKey().KeyChar;
             Console.Clear();
             Console.WriteLine("After fighting the enemies you find the Dragon's cave.");
             Console.WriteLine("You walk into the cave and find the Dragon sleeping but you kick a rock and it wakes up.");
 
-        }
-                public virtual void gameOver()
-        {
-            Dragon[] Dragons = new Dragon[2];
-            Dragons[0] = new Dragon()
-            {
-                name = "Mr.flame"
-            };
-
-            Dragons[1] = new Dragon();
-
             Console.WriteLine("You begin to fight the Dragon");
             Console.WriteLine("You attack the Dragon but dont make any noticable damage");
             Console.WriteLine("The Dragon attacks you and you die!");
-            Dragons[0].gameOver();
+            
+            End();
 
         }
+        
+        public void Save()
+        {
+            StreamWriter writer = new StreamWriter("SaveData.txt");
+           
+            writer.Close();
+        }
+
+        //loads stats and level for the player
+        public bool Load()
+        {
+            if (File.Exists("SaveData.txt") == false)
+            {
+                return false;
+            }
+           
+            StreamReader reader = new StreamReader("SaveData.txt");
+           
+            reader.Close();
+            return true;
+        }
+        public virtual void gameOver()
+        {
+            Dragon[] Dragons = new Dragon[2];
+            Dragons[0] = new Dragon();
+            
+            Dragons[1] = new Dragon();
+
+            Dragons[0].gameOver();
+            int health = 0;
+        }
+        
+
+        public void Battle(enemy enemy)
+        {
+            char input;
+            Console.WriteLine("you ran into " + enemy.getName());
+            while (player.stillAlive() && enemy.stillAlive())
+            {
 
 
+                GetInput(out input, "yes", "no", "Do you want to fight?");
+
+                if (input == '1')
+                {
+
+                    Console.WriteLine("You begin to fight the" + enemy.getName());
+                    Console.WriteLine("You attack the" + enemy.getName() + " and kill it."); ;
+                    player.Attack(enemy);
+                }
+
+                if (input == '2')
+                {
+                    Console.WriteLine("You try and run away, but you trip and fall.");
+                    Console.WriteLine(player.getName() + " Has taken 5 damage for falling");
+                    player.Takedamage(5);
+                    Console.WriteLine(player.getHealth());
+                }
+            }
+        }
+
+        public void Start()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Hello Friend! What do you go by?");
+            string name = Console.ReadLine();
+            char input;
+            GetInput(out input, "knight", "wizzard", "mage", "Welecome " + name + " !" + " Please select a role");
+
+
+            if (input == '1')
+            {
+                player = new player(name, 250, 50, "Knight");
+            }
+
+            else if (input == '2')
+            {
+                player = new player(name, 300, 70, "Wizzard");
+            }
+
+            else if (input == '3')
+            {
+                player = new player(name, 150, 25, "Mage");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Using default stats");
+
+            }
+            //Prints player stats to the screen
+            Console.WriteLine("Player Name: " + player.getName());
+            Console.WriteLine("Player Level: " + level);
+            Console.WriteLine("Player Role: " + player.getRole());
+            Console.WriteLine("Player Health: " + player.getHealth());
+            Console.WriteLine("Press any key to continue");
+            input = Console.ReadKey().KeyChar;
+            Console.Clear();
+        } 
+
+
+
+        public void Update()
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Battle(enemies[i]);
+            }
+        }
+        public void End()
+        {
+            gameOver();
+        }
+     
+
+        
 
 
 

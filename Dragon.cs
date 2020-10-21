@@ -4,20 +4,27 @@ using System.Text;
 
 namespace HelloWorld
 {
-    class Dragon:enemy
+    class Dragon : enemy
     {
         public int fire = 999;
         public int claws = 888;
         public int scales = 1337;
         public int hearing = 100;
-        
+
         public void gameOver()
         {
             Console.WriteLine("GAME OVER!");
         }
-        public override void Takedamage()
+        public override void Attack(enemy enemy)
         {
-            health -= 40;
+            int totalDamage = _damage + claws;
+            enemy.Takedamage(totalDamage);
         }
-    }
-}
+        public Dragon()
+        {
+            _name = "Mr. Flame";
+        }
+
+
+    }  
+}  
